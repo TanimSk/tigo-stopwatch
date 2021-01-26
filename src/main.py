@@ -1,3 +1,4 @@
+from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
 from kivy.uix.button import Button
 from kivymd.uix.button import MDRoundFlatButton
@@ -72,9 +73,10 @@ def playclock(x):
         t = 0
 
     else:
-        clock_ss = Clock.schedule_interval(tic, 0.1)
+        clock_ss = Clock.schedule_interval(tic, 0.96)
         button.text = "stop"
-        t = 1
+        t = 1    
+    SoundLoader.load('mytest.wav').play()
 
 def tic(arg):
     global i, j, k, t
